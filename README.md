@@ -5,7 +5,8 @@ https://youtu.be/0JkBmtGGjlI
 
 ### Comandos
 
-```bash OBS: se atente em estar na pasta raiz do projeto.
+- Levantar o Contêiner. OBS: se atente em estar na pasta raiz do projeto.
+```bash
 docker run --name hyperf \
 -v ./:/data/project/hyperf-skeleton \
 -p 9501:9501 \
