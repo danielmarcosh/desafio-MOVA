@@ -11,7 +11,6 @@ class PokemonData
     public string $name;
     public string $image;
     public array $moves;
-    public MoveData $effect_entries;
 
     public function __construct(string $name, string $image, array $moves)
     {
@@ -24,8 +23,12 @@ class PokemonData
     {
         return $this->name;
     }
-    public function setEffectEntries(MoveData $effect_entries): void
+    public function getImage(): string
     {
-        $this->effect_entries = $effect_entries;
+        return $this->image;
+    }
+    public function getMoves(): array
+    {
+        return $this->moves;
     }
 }
