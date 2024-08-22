@@ -13,14 +13,16 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\HttpServer\Contract\ResponseInterface;
+use App\Services\ClientPokemonService;
 use App\Services\PokemonSelectionService;
+use App\Services\PokemonDetailsService;
 
 class IndexController extends AbstractController
 {
     public function index(ResponseInterface $response)
     {
-        $service = new PokemonSelectionService();
+        $service = new PokemonDetailsService(new ClientPokemonService);
         
-        return $response->json($service->selectRandomPokemons(5));
+        return $response->json($service->getPokemonDetails(25));
     }
 }
