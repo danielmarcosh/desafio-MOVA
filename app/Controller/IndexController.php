@@ -12,16 +12,15 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Hyperf\HttpServer\Contract\ResponseInterface;
+use App\Services\PokemonSelectionService;
+
 class IndexController extends AbstractController
 {
-    public function index()
+    public function index(ResponseInterface $response)
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
-
-        return [
-            'method' => $method,
-            'message' => "Hello {$user}.",
-        ];
+        $service = new PokemonSelectionService();
+        
+        return $response->json($service->selectRandomPokemons(5));
     }
 }
